@@ -23,6 +23,7 @@ let user = new User("Oleg");
 let pr1 = new Product("Хлеб", 100);
 let pr2 = new Product("Вода", 60);
 let pr3 = new Product("Черная икра", 5300);
+let pr4 = new Product("Красная икра", 700);
 
 shop.getShopSystem().pushProductsInAssortiment(pr1);
 shop.getShopSystem().pushProductsInAssortiment(pr2);
@@ -40,6 +41,7 @@ shop.getShopSystem().getUserLoyaltyInShop()[userInd].setDescount(card1);
 CashRegister.buy(user, shop);
 
 shop.getShopSystem().pushProductInUserBasket(user, pr3);
+shop.getShopSystem().pushProductInUserBasket(user, pr4);
 shop.getShopSystem().getUserLoyaltyInShop()[userInd].setDescount(card2);
 
 CashRegister.buy(user, shop);

@@ -20,10 +20,15 @@ export class ShopSystem{
         this.arrUserLoyaltyInShop.push(new UserLoyaltyInShop(user.getUserId(), 0, ShopSystem.UNDCARD));
     };
 
-    public pushProductInUserBasket(user:User, product:Product){
+    public pushProductInUserBasket(user:User, product:Product):void{
         let indexUserInSys = this.arrUserBasketInShop.map(e => e.id).indexOf(user.getUserId());
         let indexProductInSys = this.assortymentsOfProducts.map(e => e.getId()).indexOf(product.getId());
-        this.arrUserBasketInShop[indexUserInSys].basket.PushProductInBasket(this.assortymentsOfProducts[indexProductInSys]);
+        if (indexProductInSys !== -1){
+            this.arrUserBasketInShop[indexUserInSys].basket.PushProductInBasket(this.assortymentsOfProducts[indexProductInSys]);
+            return;
+        }else{
+            console.log(`Товара "${product.getName()}" нет в ассортименте магазина`)
+        }
     };
 
     public getAssortyment():Product[]{

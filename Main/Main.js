@@ -21,6 +21,7 @@ var user = new User_1.User("Oleg");
 var pr1 = new Product_1.Product("Хлеб", 100);
 var pr2 = new Product_1.Product("Вода", 60);
 var pr3 = new Product_1.Product("Черная икра", 5300);
+var pr4 = new Product_1.Product("Красная икра", 700);
 shop.getShopSystem().pushProductsInAssortiment(pr1);
 shop.getShopSystem().pushProductsInAssortiment(pr2);
 shop.getShopSystem().pushProductsInAssortiment(pr3);
@@ -31,6 +32,7 @@ var userInd = shop.getIndexUserInShop(user);
 shop.getShopSystem().getUserLoyaltyInShop()[userInd].setDescount(card1);
 CashRegister_1.CashRegister.buy(user, shop);
 shop.getShopSystem().pushProductInUserBasket(user, pr3);
+shop.getShopSystem().pushProductInUserBasket(user, pr4);
 shop.getShopSystem().getUserLoyaltyInShop()[userInd].setDescount(card2);
 CashRegister_1.CashRegister.buy(user, shop);
 // console.log(shop.getDescount().getCards().getDescountCards())

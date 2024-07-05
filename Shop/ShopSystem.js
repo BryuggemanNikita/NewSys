@@ -23,7 +23,13 @@ var ShopSystem = /** @class */ (function () {
     ShopSystem.prototype.pushProductInUserBasket = function (user, product) {
         var indexUserInSys = this.arrUserBasketInShop.map(function (e) { return e.id; }).indexOf(user.getUserId());
         var indexProductInSys = this.assortymentsOfProducts.map(function (e) { return e.getId(); }).indexOf(product.getId());
-        this.arrUserBasketInShop[indexUserInSys].basket.PushProductInBasket(this.assortymentsOfProducts[indexProductInSys]);
+        if (indexProductInSys !== -1) {
+            this.arrUserBasketInShop[indexUserInSys].basket.PushProductInBasket(this.assortymentsOfProducts[indexProductInSys]);
+            return;
+        }
+        else {
+            console.log("\u0422\u043E\u0432\u0430\u0440\u0430 ".concat(product.getName(), " \u043D\u0435\u0442 \u0432 \u0430\u0441\u0441\u043E\u0440\u0442\u0438\u043C\u0435\u043D\u0442\u0435 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0430"));
+        }
     };
     ;
     ShopSystem.prototype.getAssortyment = function () {
